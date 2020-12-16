@@ -19,3 +19,8 @@
 - python manage.py runserver
 
 - open browser at 127.0.0.1:8000
+
+
+# Or Test Online
+
+https://employees-management-system-x1.herokuapp.com/
