@@ -20,6 +20,10 @@
 
 - open browser at 127.0.0.1:8000
 
+- to access admin panel 127.0.0.1:8000/admin
+
+- enter username and password
+
 
 # Or Test Online
 
