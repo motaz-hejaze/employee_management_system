@@ -91,11 +91,6 @@ DATABASES = {
     }
 }
 
-#for heroku
-DATABASES['default'] = dj_database_url.config(
-    default='postgresql-animated-14742'
-)
-
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
