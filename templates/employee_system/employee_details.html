@@ -1,0 +1,78 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <h4 class="mb-3"><img src="{{MEDIA_URL}}/icons/Notes.png">{{ employee.first_name }} {{ employee.last_name}}</h4>
+    <table class="table table-striped details-table-text">
+        <!--  employee_code,first_name, last_name, gender,birth_day,email,mobile,hire_date, emp_type, photo. -->
+        <thead>
+            <tr>
+                <th>Employee Details</th>
+                <th style="text-align: right">
+                    <a class="icon-block" href="{% url 'employees:list-employees' %}"><img src="{{MEDIA_URL}}/icons/Back.png"></a>
+
+                    <a class="icon-block" href="{% url 'employees:update-employee' employee.id %}"><img src="{{MEDIA_URL}}/icons/Modify.png"></a>
+
+                    <a class="icon-block" href="{% url 'employees:delete-employee' employee.id %}"><img src="{{MEDIA_URL}}/icons/Delete.png"></a>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td scope="col" class="details-main">ID</td><td scope="colgroup">{{ employee.id }}</td>
+            </tr>
+            <tr>
+                <td scope="col">First Name</td><td scope="col">{{ employee.first_name }}</td>
+            </tr>
+            <tr>
+                <td scope="col">Last Name</td><td scope="col">{{ employee.last_name }}</td>
+            </tr>
+            <tr>
+                <td scope="col">Code</td><td scope="col">{{ employee.employee_code }}</td>
+            </tr>
+            <tr>
+                <td scope="col">Gender</td>
+                <td scope="col">
+                    {% if employee.gender == 'M'%}
+                        Male
+                    {% else %}
+                        Female
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <td scope="col">Birth Day</td><td scope="col">{{ employee.birth_date }}</td>
+            </tr>
+            <tr>
+                <td scope="col">Email</td><td scope="col">{{ employee.email }}</td>
+            </tr>
+            <tr>
+                <td scope="col">Mobile</td><td scope="col">{{ employee.mobile }}</td>
+            </tr>
+            <tr>
+                <td scope="col">Hire Date</td><td scope="col">{{ employee.hire_date }}</td>
+            </tr>
+            <tr>
+                <td scope="col">Type</td>
+                <td scope="col">
+                    {% if employee.employee_type == 'P'%}
+                        Permanent
+                    {% else %}
+                        Temporary
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <td scope="col">Photo</td><td scope="col">
+                    {% if employee.photo %}
+                        <img height="100" width="100" src="{{ employee.photo.url }}">
+                    {% elif employee.gender == 'M' %}
+                        <img height="100" width="100" src="{{ MEDIA_URL }}default/male.jpg">
+                    {% else %}
+                        <img height="100" width="100" src="{{ MEDIA_URL }}default/female.jpg">
+                    {% endif %}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    
+{% endblock  %}

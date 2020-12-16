@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <div class="text-center">
+        <form method="post">
+            {% csrf_token %}
+            <p class="delete-msg">
+            <img src="{{MEDIA_URL}}/icons/Sad.png" width="50px" height="50px">
+            </p>
+            <p class="delete-msg">
+                Are you sure you want to delete <b>"{{ employee.first_name }}"</b> ?
+            </p>
+            <a href="{% url 'employees:list-employees' %}" class="btn btn-secondary">NO</a>
+            <button class="btn btn-primary" type="submit">Yes</button>
+        </form>
+    </div>
+{% endblock %}

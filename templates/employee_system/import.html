@@ -1,0 +1,9 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input required type="file" name="employees">
+    <button type="submit">Upload</button>
+  </form>
+{% endblock %}
